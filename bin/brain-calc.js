@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
+import {
+  userName, greetingUser, randomNumber, questionCount,
+} from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-const userName = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${userName}!`);
+greetingUser();
 
 console.log('What is the result of the expression?');
 
-const randomNumber = (max = 100) => Math.round(max * Math.random());
-const questionCount = 3;
 const mathOperation = ['+', '-', '*'];
 const getRandomSign = (max = (mathOperation.length - 1)) => {
   const i = Math.round(Math.random() * max);
