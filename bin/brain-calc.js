@@ -1,42 +1,40 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
+
 import {
-  userName, greetingUser, randomNumber, questionCount,
+  printWelcome, getUserName, greetUser, randomNumber, questionCount, getUsersAnswer, accept,
+  reject, congr,
 } from '../src/index.js';
 
-greetingUser();
+import {
+  calcTask, getRandomSign, calc,
+} from '../src/games/calc.js';
 
-console.log('What is the result of the expression?');
+printWelcome();
+const userName = getUserName();
+greetUser(userName);
 
-const mathOperation = ['+', '-', '*'];
-const getRandomSign = (max = (mathOperation.length - 1)) => {
-  const i = Math.round(Math.random() * max);
-  return mathOperation[i];
-};
+calcTask();
+
 let mistake = false;
 
 for (let i = 0; i < questionCount; i += 1) {
   const number1 = randomNumber();
   const number2 = randomNumber();
   const mathSign = getRandomSign();
-  let rightAnswer;
+
   console.log(`Question: ${number1} ${mathSign} ${number2}`);
-  if (mathSign === '+') {
-    rightAnswer = number1 + number2;
-  } else if (mathSign === '-') {
-    rightAnswer = number1 - number2;
-  } else if (mathSign === '*') {
-    rightAnswer = number1 * number2;
-  }
-  const usersAnswer = readlineSync.question('Your answer: ');
+
+  const rightAnswer = calc(number1, mathSign, number2);
+
+  const usersAnswer = getUsersAnswer();
   if (usersAnswer === rightAnswer.toString()) {
-    console.log('Correct!');
+    accept();
   } else {
-    console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
+    reject(usersAnswer, rightAnswer, userName);
     mistake = true;
     break;
   }
 }
 if (mistake === false) {
-  console.log(`Congratulations, ${userName}!`);
+  congr(userName);
 }
