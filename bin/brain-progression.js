@@ -27,7 +27,7 @@ for (let i = 0; i < questionCount; i += 1) {
     progression.push(element);
   }
 
-  const questionElement = randomNumber(0, progrLength);
+  const questionElement = randomNumber(0, (progrLength - 1));
 
   const rightAnswer = progression[questionElement];
 
