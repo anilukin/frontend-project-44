@@ -16,8 +16,8 @@ gcdTask();
 let mistake = false;
 
 for (let i = 0; i < questionCount; i += 1) {
-  const number1 = randomNumber();
-  const number2 = randomNumber();
+  const number1 = randomNumber(0, 100);
+  const number2 = randomNumber(0, 100);
 
   console.log(`Question: ${number1} ${number2}`);
 

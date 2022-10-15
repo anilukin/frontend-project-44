@@ -18,7 +18,7 @@ evenTask();
 let mistake = false;
 
 for (let i = 0; i < questionCount; i += 1) {
-  const number = randomNumber();
+  const number = randomNumber(0, 100);
   console.log(`Question: ${number}`);
   const usersAnswer = getUsersAnswer();
 
