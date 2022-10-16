@@ -1,3 +1,5 @@
+import { randomNumber, getUsersAnswer } from '../index.js';
+
 const primeTask = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
 const getPrimeAnswer = (num) => {
@@ -18,6 +20,19 @@ const getPrimeAnswer = (num) => {
   return answer;
 };
 
+const primeGame = () => {
+  const number = randomNumber(0, 100);
+
+  console.log(`Question: ${number}`);
+
+  const usersAnswer = getUsersAnswer();
+  const rightAnswer = getPrimeAnswer(number);
+
+  const answerArray = [rightAnswer, usersAnswer];
+
+  return answerArray;
+};
+
 export {
-  primeTask, getPrimeAnswer,
+  primeTask, primeGame,
 };
