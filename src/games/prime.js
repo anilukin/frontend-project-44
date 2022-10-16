@@ -9,7 +9,7 @@ const getPrimeAnswer = (num) => {
   }
   const numRoot = Math.sqrt(num);
   let n = 0;
-  for (let i = 1; i < numRoot; i += 1) {
+  for (let i = 1; i <= numRoot; i += 1) {
     if (num % i === 0) {
       n += 1;
     }
