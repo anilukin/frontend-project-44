@@ -1,3 +1,5 @@
+import { randomNumber, getUsersAnswer } from '../index.js';
+
 const evenTask = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 const getRightAnswer = (num) => {
@@ -10,6 +12,19 @@ const getRightAnswer = (num) => {
   return rightAnswer;
 };
 
+const evenGame = () => {
+  const number = randomNumber(0, 100);
+
+  console.log(`Question: ${number}`);
+
+  const usersAnswer = getUsersAnswer();
+  const rightAnswer = getRightAnswer(number);
+
+  const answerArray = [rightAnswer, usersAnswer];
+
+  return answerArray;
+};
+
 export {
-  evenTask, getRightAnswer,
+  evenTask, evenGame,
 };
