@@ -31,7 +31,7 @@ for (let i = 0; i < questionCount; i += 1) {
     mistake = true;
     break;
   }
-  if (mistake === false) {
-    congr(userName);
-  }
+}
+if (mistake === false) {
+  congr(userName);
 }

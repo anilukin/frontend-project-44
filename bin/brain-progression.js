@@ -33,7 +33,7 @@ for (let i = 0; i < questionCount; i += 1) {
 
   progression[questionElement] = '..';
 
-  console.log(`Question: ${progression}`);
+  console.log(`Question: ${progression.join(' ')}`);
 
   const usersAnswer = getUsersAnswer();
   if (usersAnswer === rightAnswer.toString()) {
