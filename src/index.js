@@ -9,7 +9,7 @@ const getUserName = () => {
 
 const greetUser = (userName) => console.log(`Hello, ${userName}!`);
 
-const randomNumber = (min, max) => Math.round(Math.random() * (max - min + 1)) + min;
+const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const questionCount = 3;
 
 const getUsersAnswer = () => {
