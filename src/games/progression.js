@@ -1,4 +1,5 @@
-import { randomNumber, getUsersAnswer } from '../index.js';
+import { getUsersAnswer } from '../index.js';
+import randomNumber from '../helper.js';
 
 const progressionTask = () => console.log('What number is missing in the progression?');
 

@@ -1,4 +1,5 @@
-import { randomNumber, getUsersAnswer } from '../index.js';
+import { getUsersAnswer } from '../index.js';
+import randomNumber from '../helper.js';
 
 const gcdTask = () => console.log('Find the greatest common divisor of given numbers.');
 

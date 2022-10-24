@@ -1,4 +1,5 @@
-import { randomNumber, getUsersAnswer } from '../index.js';
+import { getUsersAnswer } from '../index.js';
+import randomNumber from '../helper.js';
 
 const evenTask = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 

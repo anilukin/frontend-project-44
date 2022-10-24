@@ -9,8 +9,6 @@ const getUserName = () => {
 
 const greetUser = (userName) => console.log(`Hello, ${userName}!`);
 
-const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
 const questionCount = 3;
 
 const getUsersAnswer = () => {
@@ -54,5 +52,5 @@ const game = (gameRules, askQuestion) => {
 };
 
 export {
-  randomNumber, getUsersAnswer, game,
+  getUsersAnswer, game,
 };
