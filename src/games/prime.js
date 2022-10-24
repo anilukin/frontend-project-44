@@ -7,16 +7,13 @@ const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
-  const numRoot = Math.sqrt(num);
   let n = 0;
-  for (let i = 1; i <= numRoot; i += 1) {
+  for (let i = 1; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
       n += 1;
     }
   }
-  if (n === 1) {
-    return true;
-  } return false;
+  return n === 1;
 };
 
 const primeGame = () => {
