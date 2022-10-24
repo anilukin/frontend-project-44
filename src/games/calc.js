@@ -4,10 +4,6 @@ import randomNumber from '../helper.js';
 const calcTask = () => console.log('What is the result of the expression?');
 
 const mathOperation = ['+', '-', '*'];
-const getRandomSign = (max = (mathOperation.length - 1)) => {
-  const i = Math.round(Math.random() * max);
-  return mathOperation[i];
-};
 
 const calc = (num1, operator, num2) => {
   switch (operator) {
@@ -25,7 +21,7 @@ const calc = (num1, operator, num2) => {
 const calcGame = () => {
   const number1 = randomNumber(0, 100);
   const number2 = randomNumber(0, 100);
-  const mathSign = getRandomSign();
+  const mathSign = mathOperation[randomNumber(0, (mathOperation.length - 1))];
 
   console.log(`Question: ${number1} ${mathSign} ${number2}`);
 
