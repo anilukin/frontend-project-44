@@ -3,10 +3,9 @@ import randomNumber from '../helper.js';
 
 const primeTask = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-const getPrimeAnswer = (num) => {
-  let answer;
-  if (num > 2) {
-    answer = 'no';
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
   }
   const numRoot = Math.sqrt(num);
   let n = 0;
@@ -16,9 +15,8 @@ const getPrimeAnswer = (num) => {
     }
   }
   if (n === 1) {
-    answer = 'yes';
-  } else answer = 'no';
-  return answer;
+    return true;
+  } return false;
 };
 
 const primeGame = () => {
@@ -27,7 +25,7 @@ const primeGame = () => {
   console.log(`Question: ${number}`);
 
   const usersAnswer = getUsersAnswer();
-  const rightAnswer = getPrimeAnswer(number);
+  const rightAnswer = isPrime(number) ? 'yes' : 'no';
 
   const answerArray = [rightAnswer, usersAnswer];
 

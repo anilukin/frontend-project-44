@@ -3,15 +3,7 @@ import randomNumber from '../helper.js';
 
 const evenTask = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const getRightAnswer = (num) => {
-  let rightAnswer;
-  if (num % 2 === 0) {
-    rightAnswer = 'yes';
-  } else if (num % 2 !== 0) {
-    rightAnswer = 'no';
-  }
-  return rightAnswer;
-};
+const isEven = (num) => num % 2 === 0;
 
 const evenGame = () => {
   const number = randomNumber(0, 100);
@@ -19,7 +11,7 @@ const evenGame = () => {
   console.log(`Question: ${number}`);
 
   const usersAnswer = getUsersAnswer();
-  const rightAnswer = getRightAnswer(number);
+  const rightAnswer = isEven(number) ? 'yes' : 'no';
 
   const answerArray = [rightAnswer, usersAnswer];
 
