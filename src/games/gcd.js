@@ -1,7 +1,7 @@
-import { getUsersAnswer } from '../index.js';
+import game from '../index.js';
 import randomNumber from '../helper.js';
 
-const gcdTask = () => console.log('Find the greatest common divisor of given numbers.');
+const description = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (num1, num2) => {
   let minNum = Math.abs(num1);
@@ -19,20 +19,19 @@ const getGcd = (num1, num2) => {
   return maxNum + minNum;
 };
 
-const gcdGame = () => {
+const getAnswerAndQuestion = () => {
   const number1 = randomNumber(0, 100);
   const number2 = randomNumber(0, 100);
 
-  console.log(`Question: ${number1} ${number2}`);
+  const question = `${number1} ${number2}`;
 
-  const rightAnswer = getGcd(number1, number2);
-  const usersAnswer = getUsersAnswer();
+  const rightAnswer = getGcd(number1, number2).toString();
 
-  const answerArray = [rightAnswer.toString(), usersAnswer];
-
-  return answerArray;
+  return [question, rightAnswer];
 };
 
-export {
-  gcdTask, gcdGame,
+const runGcdGame = () => {
+  game(description, getAnswerAndQuestion);
 };
+
+export default runGcdGame;
