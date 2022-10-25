@@ -1,9 +1,9 @@
-import { getUsersAnswer } from '../index.js';
+import game from '../index.js';
 import randomNumber from '../helper.js';
 
-const progressionTask = () => console.log('What number is missing in the progression?');
+const description = 'What number is missing in the progression?';
 
-const progressionGame = () => {
+const getProgression = () => {
   const progrLength = randomNumber(5, 10);
   const firstProgrElement = randomNumber(0, 50);
   const progrStep = randomNumber(0, 50);
@@ -14,22 +14,25 @@ const progressionGame = () => {
     const element = firstProgrElement + i * progrStep;
     progression.push(element);
   }
-
-  const questionElement = randomNumber(0, (progrLength - 1));
-
-  const rightAnswer = progression[questionElement];
-
-  progression[questionElement] = '..';
-
-  console.log(`Question: ${progression.join(' ')}`);
-
-  const usersAnswer = getUsersAnswer();
-
-  const answerArray = [rightAnswer.toString(), usersAnswer];
-
-  return answerArray;
+  return progression;
 };
 
-export {
-  progressionTask, progressionGame,
+const getAnswerAndQuestion = () => {
+  const progr = getProgression();
+
+  const questionElement = randomNumber(0, (progr.length - 1));
+
+  const rightAnswer = progr[questionElement].toString();
+
+  progr[questionElement] = '..';
+
+  const question = `${progr.join(' ')}`;
+
+  return [question, rightAnswer];
 };
+
+const runProgressionGame = () => {
+  game(description, getAnswerAndQuestion);
+};
+
+export default runProgressionGame;
