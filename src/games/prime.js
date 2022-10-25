@@ -1,7 +1,7 @@
-import { getUsersAnswer } from '../index.js';
+import game from '../index.js';
 import randomNumber from '../helper.js';
 
-const primeTask = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -16,19 +16,18 @@ const isPrime = (num) => {
   return n === 1;
 };
 
-const primeGame = () => {
+const getAnswerAndQuestion = () => {
   const number = randomNumber(0, 100);
 
-  console.log(`Question: ${number}`);
+  const question = `${number}`;
 
-  const usersAnswer = getUsersAnswer();
   const rightAnswer = isPrime(number) ? 'yes' : 'no';
 
-  const answerArray = [rightAnswer, usersAnswer];
-
-  return answerArray;
+  return [question, rightAnswer];
 };
 
-export {
-  primeTask, primeGame,
+const runPrimeGame = () => {
+  game(description, getAnswerAndQuestion);
 };
+
+export default runPrimeGame;
