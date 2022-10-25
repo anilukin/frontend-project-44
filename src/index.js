@@ -1,56 +1,37 @@
 import readlineSync from 'readline-sync';
 
-const printWelcome = () => console.log('Welcome to the Brain Games!');
-
-const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  return userName;
-};
-
-const greetUser = (userName) => console.log(`Hello, ${userName}!`);
-
 const questionCount = 3;
 
-const getUsersAnswer = () => {
-  const usersAnswer = readlineSync.question('Your answer: ');
-  return usersAnswer;
-};
+const game = (description, getAnswerAndQuestion) => {
+  console.log('Welcome to the Brain Games!');
 
-const accept = () => console.log('Correct!');
+  const userName = readlineSync.question('May I have your name? ');
 
-const reject = (usersAnswer, rightAnswer, userName) => console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
+  console.log(`Hello, ${userName}!`);
 
-const congr = (userName) => console.log(`Congratulations, ${userName}!`);
-
-const game = (gameRules, askQuestion) => {
-  printWelcome();
-
-  const userName = getUserName();
-
-  greetUser(userName);
-
-  gameRules();
+  console.log(description);
 
   let mistake = false;
 
   for (let i = 0; i < questionCount; i += 1) {
-    const answerArray = askQuestion();
-    const rightAnswer = answerArray[0];
-    const usersAnswer = answerArray[1];
+    const answerAndQuestionArr = getAnswerAndQuestion();
+
+    console.log(`Question: ${answerAndQuestionArr[0]}`);
+
+    const usersAnswer = readlineSync.question('Your answer: ');
+    const rightAnswer = answerAndQuestionArr[1];
 
     if (usersAnswer === rightAnswer) {
-      accept();
+      console.log('Correct!');
     } else {
-      reject(usersAnswer, rightAnswer, userName);
+      console.log(`'${usersAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       mistake = true;
       break;
     }
   }
   if (mistake === false) {
-    congr(userName);
+    console.log(`Congratulations, ${userName}!`);
   }
 };
 
-export {
-  getUsersAnswer, game,
-};
+export default game;
